@@ -9,6 +9,7 @@ public class CameraMovement : MonoBehaviour {
 	[SerializeField] float speed = 10f;
 	[SerializeField] float rotationSpeed = 10f;
 	[SerializeField] float zoomSpeed = 10f;
+	float imageSize;
 
 	void Start ()
 	{
@@ -40,6 +41,18 @@ public class CameraMovement : MonoBehaviour {
 		float inputZ = Input.GetAxis("Fire1");
 		mainCamera.orthographicSize += inputZ * zoomSpeed * Time.deltaTime;
 		mainCamera.orthographicSize = Mathf.Clamp (mainCamera.orthographicSize, 0.1f, 100f);
+	}
+
+	public void Initialize (float size) 
+	//Initialize camera's size to fit the image's size
+	{
+		imageSize = size;
+		Resize ();
+	}
+
+	void Resize () 
+	{
+		mainCamera.orthographicSize = imageSize;
 	}
 
 }

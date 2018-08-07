@@ -3,46 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Windows;
 
-//Open a picture from the internet, not from the computer yet
+//Gives a sprite to the gameobject from the picture indicated by the user
 public class ImageRetriever : MonoBehaviour {
 
-	string filePath = "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'écran";
-	Texture2D img;
+	public string filePath = "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'écran\\Digimon-Survive.jpg";
 
-	// Use this for initialization
+	private Texture2D imgTex;
+	private Sprite image;
+	private SpriteRenderer spriteR;
+
 	void Start () {
-		img = LoadPNG (filePath);
-		//StartCoroutine (LoadImg());
+		//filePath = ObtainUserPath ();
+		ApplySpriteFromPath (filePath);
 	}
 
-	//IEnumerator LoadImg()
-	//{
-	//	yield return 0;
-	//	WWW imgLink = new WWW (filePath);
-	//	yield return imgLink;
-	//	img = imgLink.texture;
+
+	public void ApplySpriteFromPath (string filePath) {
+		imgTex = LoadPNG (filePath);
+		image = Sprite.Create (imgTex, new Rect(0, 0, imgTex.width, imgTex.height), new Vector2(0.5f, 0.5f));
+		spriteR = gameObject.GetComponent<SpriteRenderer>();
+		spriteR.sprite = image;
+	}
+
+		
+	//void OnGUI () {
+	//	GUILayout.Label (imgTex);
 	//}
 
-	// Update is called once per frame
-	void OnGUI () {
-		GUILayout.Label (img);
-	}
-
-	public static Texture2D LoadPNG(string filePath) {
-
+	public static Texture2D LoadPNG(string filePath)
+	//Converts image from filePath to a Texture2D
+	{
 		Texture2D tex = null;
 		byte[] fileData;
 
 		if (File.Exists (filePath)) {
-			Debug.Log ("Le fichier est trouvé");
 			fileData = File.ReadAllBytes (filePath);
 			tex = new Texture2D (2, 2);
 			tex.LoadImage (fileData); //..this will auto-resize the texture dimensions.
 		}
-		else 
-		{
-			Debug.Log ("Nope");
-		}
+
 		return tex;
 	}
 

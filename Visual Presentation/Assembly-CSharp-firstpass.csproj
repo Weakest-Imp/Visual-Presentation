@@ -293,11 +293,8 @@
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/Quentin/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.StandardEvents">
- <HintPath>C:/Users/Quentin/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+ <Reference Include="CTCommon">
+ <HintPath>C:/Users/Quentin/Desktop/Jeux/Projets Unity/Stage - Visual Presentation/Visual-Presentation/Visual Presentation/Assets/Plugins/crosstales/Common/Scripts/CTCommon.dll</HintPath>
  </Reference>
  <Reference Include="Ookii.Dialogs">
  <HintPath>C:/Users/Quentin/Desktop/Jeux/Projets Unity/Stage - Visual Presentation/Visual-Presentation/Visual Presentation/Assets/Plugins/crosstales/FileBrowser/Native/Windows/Ookii.Dialogs.dll</HintPath>
@@ -305,8 +302,11 @@
  <Reference Include="System.Windows.Forms">
  <HintPath>C:/Users/Quentin/Desktop/Jeux/Projets Unity/Stage - Visual Presentation/Visual-Presentation/Visual Presentation/Assets/Plugins/crosstales/FileBrowser/Native/Windows/System.Windows.Forms.dll</HintPath>
  </Reference>
- <Reference Include="CTCommon">
- <HintPath>C:/Users/Quentin/Desktop/Jeux/Projets Unity/Stage - Visual Presentation/Visual-Presentation/Visual Presentation/Assets/Plugins/crosstales/Common/Scripts/CTCommon.dll</HintPath>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Users/Quentin/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>C:/Users/Quentin/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>

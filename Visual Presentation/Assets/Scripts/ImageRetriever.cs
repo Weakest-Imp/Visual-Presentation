@@ -17,7 +17,7 @@ public class ImageRetriever : MonoBehaviour {
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
 		cameraScript = (CameraMovement) mainCamera.GetComponent (typeof(CameraMovement));
-		//filePath = ObtainUserPath ();
+		//________filePath = ObtainUserPath ();_______
 		ApplySpriteFromPath (filePath);
 	}
 
@@ -29,11 +29,6 @@ public class ImageRetriever : MonoBehaviour {
 		spriteR.sprite = image;
 		cameraScript.Initialize (imgTex.height/200f);
 	}
-
-		
-	//void OnGUI () {
-	//	GUILayout.Label (imgTex);
-	//}
 
 	public static Texture2D LoadPNG(string filePath)
 	//Converts image from filePath to a Texture2D

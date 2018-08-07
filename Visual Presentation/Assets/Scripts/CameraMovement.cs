@@ -9,18 +9,26 @@ public class CameraMovement : MonoBehaviour {
 	[SerializeField] float speed = 10f;
 	[SerializeField] float rotationSpeed = 10f;
 	[SerializeField] float zoomSpeed = 10f;
-	float imageSize;
+	Slide imageSlide;
+	Slide previousSlide;
 
 	void Start ()
 	{
 		mainCamera = GetComponent<Camera> ();
 	}
 
+	//Detects user inputs
 	void Update() 
 	{
 		Move ();
 		Rotate ();
 		Zoom ();
+		if (Input.GetKeyDown(KeyCode.O)){
+			Relocate(imageSlide);
+		}
+		//if (Input.GetKeyDown(KeyCode.P)){
+		//	Relocate(previousSlide);
+		//}
 	}
 		
 	void Move () 
@@ -46,13 +54,17 @@ public class CameraMovement : MonoBehaviour {
 	public void Initialize (float size) 
 	//Initialize camera's size to fit the image's size
 	{
-		imageSize = size;
-		Resize ();
+		imageSlide = new Slide(0, 0, 0, size);
+		Relocate (imageSlide);
 	}
 
-	void Resize () 
+	void Relocate (Slide slide) 
+	//Allows to jump from current position to requested slide
 	{
-		mainCamera.orthographicSize = imageSize;
+		mainCamera.transform.position = new Vector3 (slide.Getx(), slide.Gety(), -10);
+		mainCamera.transform.eulerAngles = new Vector3(0, 0, slide.GetRot());
+		//mainCamera.transform.rotation = mainCamera.transform.rotation.Euler (0, 0, slide.GetRot());
+		mainCamera.orthographicSize = slide.GetZoom();
 	}
 
 }

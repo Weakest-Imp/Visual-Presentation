@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scripts\Extern\OldImageRetriever.cs" />
      <Compile Include="Assets\Scripts\Extern\ZoomInZoomOut.cs" />
      <Compile Include="Assets\Scripts\ImageRetriever.cs" />
+     <Compile Include="Assets\Scripts\Presentation.cs" />
+     <Compile Include="Assets\Scripts\Register.cs" />
      <Compile Include="Assets\Scripts\Slide.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Quentin/Desktop/Jeux/Projets Unity/Stage - Visual Presentation/Visual-Presentation/Visual Presentation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

@@ -5,16 +5,17 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
 	Camera mainCamera;
+	Register register;
 
 	[SerializeField] float speed = 10f;
 	[SerializeField] float rotationSpeed = 10f;
 	[SerializeField] float zoomSpeed = 10f;
 	Slide imageSlide;
-	Slide previousSlide;
 
 	void Start ()
 	{
 		mainCamera = GetComponent<Camera> ();
+		register = GetComponent<Register> ();
 	}
 
 	//Detects user inputs
@@ -26,9 +27,9 @@ public class CameraMovement : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.O)){
 			Relocate(imageSlide);
 		}
-		//if (Input.GetKeyDown(KeyCode.P)){
-		//	Relocate(previousSlide);
-		//}
+		if (Input.GetKeyDown(KeyCode.P)){
+			register.AddSlide();
+		}
 	}
 		
 	void Move () 
@@ -42,6 +43,12 @@ public class CameraMovement : MonoBehaviour {
 		float inputR = Input.GetAxis("Fire2");
 		Vector3 rotate = new Vector3 (0f, 0f, inputR * rotationSpeed * Time.deltaTime);
 		transform.Rotate(rotate);
+	}
+
+	public void RotateButton (int button)
+	{
+		Vector3 rotate = new Vector3 (0f, 0f, button * rotationSpeed * Time.deltaTime);
+		transform.Rotate (rotate);
 	}
 
 	void Zoom ()
@@ -58,12 +65,11 @@ public class CameraMovement : MonoBehaviour {
 		Relocate (imageSlide);
 	}
 
-	void Relocate (Slide slide) 
+	public void Relocate (Slide slide) 
 	//Allows to jump from current position to requested slide
 	{
 		mainCamera.transform.position = new Vector3 (slide.Getx(), slide.Gety(), -10);
 		mainCamera.transform.eulerAngles = new Vector3(0, 0, slide.GetRot());
-		//mainCamera.transform.rotation = mainCamera.transform.rotation.Euler (0, 0, slide.GetRot());
 		mainCamera.orthographicSize = slide.GetZoom();
 	}
 

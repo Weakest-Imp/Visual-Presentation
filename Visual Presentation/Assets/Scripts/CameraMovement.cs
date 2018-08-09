@@ -12,6 +12,9 @@ public class CameraMovement : MonoBehaviour {
 	[SerializeField] float zoomSpeed = 10f;
 	Slide imageSlide;
 
+	[SerializeField] bool leftRotate = false;
+	[SerializeField] bool rightRotate = false;
+
 	void Start ()
 	{
 		mainCamera = GetComponent<Camera> ();
@@ -21,6 +24,7 @@ public class CameraMovement : MonoBehaviour {
 	//Detects user inputs
 	void Update() 
 	{
+		//Keyboard controls
 		Move ();
 		Rotate ();
 		Zoom ();
@@ -29,6 +33,14 @@ public class CameraMovement : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.P)){
 			register.AddSlide();
+		}
+
+		//Mouse controls
+		if (leftRotate) {
+			RotateButton (1);
+		}
+		if (rightRotate) {
+			RotateButton (-1);
 		}
 	}
 		
@@ -49,6 +61,15 @@ public class CameraMovement : MonoBehaviour {
 	{
 		Vector3 rotate = new Vector3 (0f, 0f, button * rotationSpeed * Time.deltaTime);
 		transform.Rotate (rotate);
+	}
+
+	public void PressButtonLeft (bool pressed)
+	{
+		leftRotate = pressed;
+	}
+	public void PressButtonRight (bool pressed)
+	{
+		rightRotate = pressed;
 	}
 
 	void Zoom ()

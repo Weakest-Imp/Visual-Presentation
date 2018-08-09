@@ -10,11 +10,51 @@ public class Register : MonoBehaviour {
 	Camera mainCamera;
 	CameraMovement cameraMovement;
 
+	int pointer;
+
 	void Start ()
 	{
 		presentation = ScriptableObject.CreateInstance<Presentation> ();
 		mainCamera = GetComponent<Camera> ();
 		cameraMovement = GetComponent<CameraMovement> ();
+	}
+
+	public int GetPointer ()
+	{
+		return pointer;
+	}
+	public bool IsEmpty ()
+	{
+		if (presentation.slides.Count == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	//Change the Selected slide
+	public void PointerPlus ()
+	{
+		pointer++;
+		if (pointer >= presentation.slides.Count) {
+			pointer = 0;
+		}
+		Debug.Log (pointer);
+	}
+	public void PointerMinus ()
+	{
+		pointer--;
+		if (pointer < 0) {
+			pointer = presentation.slides.Count-1;
+			if (pointer == -1) {pointer = 0;}
+		}
+		Debug.Log (pointer);
+	}
+	public void PointerJump (int index)
+	{
+		if (index < presentation.slides.Count && index >= 0) {
+			pointer = index;
+		}
 	}
 
 	public void AddSlide ()
@@ -26,6 +66,7 @@ public class Register : MonoBehaviour {
 		float zoom = mainCamera.orthographicSize;
 		Slide slide = new Slide (x, y, rot, zoom);
 		presentation.slides.Add (slide);
+		Debug.Log ("Slide added");
 	}
 
 	public void ChangeOrder(int oldPosition, int newPosition)
@@ -36,13 +77,9 @@ public class Register : MonoBehaviour {
 		presentation.slides.RemoveAt (oldPosition);
 	}
 
-	public void GoToSlide (int slidePosition)
+	public void GoToSlide ()
 	{
-		Debug.Log ("Going");
-		if (slidePosition < presentation.slides.Count) {
-			cameraMovement.Relocate (presentation.slides[slidePosition]);
-			Debug.Log ("Sucess!");
-		}
+		cameraMovement.Relocate (presentation.slides[pointer]);
 	}
 
 //	public void Save ()

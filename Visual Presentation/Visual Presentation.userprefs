@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlaceHolderText.cs">
     <Files>
-      <File FileName="Assets\Scripts\CameraMovement.cs" Line="31" Column="23" />
-      <File FileName="Assets\Scripts\Register.cs" Line="18" Column="3" />
+      <File FileName="Assets\Scripts\CameraMovement.cs" Line="95" Column="3" />
+      <File FileName="Assets\Scripts\Register.cs" Line="79" Column="2" />
+      <File FileName="Assets\Scripts\PlaceHolderText.cs" Line="12" Column="17" />
       <File FileName="Assets\Scripts\ImageRetriever.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Slide.cs" Line="6" Column="19" />
-      <File FileName="Assets\Scripts\Presentation.cs" Line="9" Column="9" />
+      <File FileName="Assets\Scripts\Slide.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Presentation.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

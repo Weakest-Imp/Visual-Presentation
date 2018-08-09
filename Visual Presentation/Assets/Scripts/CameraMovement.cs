@@ -14,6 +14,8 @@ public class CameraMovement : MonoBehaviour {
 
 	[SerializeField] bool leftRotate = false;
 	[SerializeField] bool rightRotate = false;
+	[SerializeField] bool zoomIn = false;
+	[SerializeField] bool zoomOut = false;
 
 	void Start ()
 	{
@@ -41,6 +43,12 @@ public class CameraMovement : MonoBehaviour {
 		}
 		if (rightRotate) {
 			RotateButton (-1);
+		}
+		if (zoomIn) {
+			ZoomButon (-1);
+		}
+		if (zoomOut) {
+			ZoomButon (1);
 		}
 	}
 		
@@ -77,6 +85,21 @@ public class CameraMovement : MonoBehaviour {
 		float inputZ = Input.GetAxis("Fire1");
 		mainCamera.orthographicSize += inputZ * zoomSpeed * Time.deltaTime;
 		mainCamera.orthographicSize = Mathf.Clamp (mainCamera.orthographicSize, 0.1f, 100f);
+	}
+
+	public void ZoomButon (int button)
+	{
+		mainCamera.orthographicSize += button * zoomSpeed * Time.deltaTime;
+		mainCamera.orthographicSize = Mathf.Clamp (mainCamera.orthographicSize, 0.1f, 100f);
+	}
+
+	public void PressButtonZoom (bool pressed)
+	{
+		zoomIn = pressed;
+	}
+	public void PressButtonDezoom (bool pressed)
+	{
+		zoomOut = pressed;
 	}
 
 	public void Initialize (float size) 

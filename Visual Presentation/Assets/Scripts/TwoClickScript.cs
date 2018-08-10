@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteSlide : MonoBehaviour {
+public class TwoClickScript : MonoBehaviour {
 
 	[SerializeField] GameObject confirm;
 

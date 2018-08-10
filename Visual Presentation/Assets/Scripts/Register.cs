@@ -25,6 +25,12 @@ public class Register : MonoBehaviour {
 	{
 		return pointer;
 	}
+	public void SetPointer(int newPosition)
+	{
+		if (newPosition >= 0 && newPosition < presentation.slides.Count) {
+			pointer = newPosition;}
+	}
+
 	public bool IsEmpty ()
 	{
 		if (presentation.slides.Count == 0) {
@@ -84,12 +90,14 @@ public class Register : MonoBehaviour {
 		}
 	}
 
-	public void ChangeOrder(int oldPosition, int newPosition)
+	public void ChangeOrder(string position)
 	//Moves a slide from one position to another, 
 	{
-		Slide movingSlide = presentation.slides[oldPosition];
+		int newPosition = int.Parse(position);
+		Slide movingSlide = presentation.slides[pointer];
 		presentation.slides.Insert (newPosition, movingSlide);
-		presentation.slides.RemoveAt (oldPosition);
+		presentation.slides.RemoveAt (pointer);
+		Debug.Log ("MOVED!");
 	}
 
 	public void GoToSlide ()

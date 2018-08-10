@@ -130,9 +130,14 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	public void Initialize (float size) 
-	//Initialize camera's size to fit the image's size
+	//Initialize camera's size to fit the image's size a first time
 	{
 		imageSlide = new Slide(0, 0, 0, size);
+		Relocate (imageSlide);
+	}
+	public void ReInitialize () 
+	//Returns the camera to the full picture
+	{
 		Relocate (imageSlide);
 	}
 

@@ -53,8 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ReadMe.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
+     <Compile Include="Assets\Scripts\DeleteConfirm.cs" />
+     <Compile Include="Assets\Scripts\DeleteSlide.cs" />
      <Compile Include="Assets\Scripts\Extern\OldImageRetriever.cs" />
      <Compile Include="Assets\Scripts\Extern\ZoomInZoomOut.cs" />
      <Compile Include="Assets\Scripts\ImageRetriever.cs" />

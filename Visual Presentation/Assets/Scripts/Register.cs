@@ -6,9 +6,11 @@ using System.IO;
 
 public class Register : MonoBehaviour {
 
-	Presentation presentation;
+	public Presentation presentation;
 	Camera mainCamera;
 	CameraMovement cameraMovement;
+	public string filePath = "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'écran\\Digimon-Survive.jpg";
+	string savePath;
 
 	int pointer;
 
@@ -66,7 +68,20 @@ public class Register : MonoBehaviour {
 		float zoom = mainCamera.orthographicSize;
 		Slide slide = new Slide (x, y, rot, zoom);
 		presentation.slides.Add (slide);
-		Debug.Log ("Slide added");
+	}
+
+	public void DeleteSlide ()
+	{
+		if (!this.IsEmpty ()) {
+			presentation.slides.RemoveAt (pointer);
+			if (pointer >= presentation.slides.Count) {
+				pointer--;
+			}
+			if (pointer == -1) {
+				pointer = 0;
+			}
+			Debug.Log ("DELETED");
+		}
 	}
 
 	public void ChangeOrder(int oldPosition, int newPosition)
@@ -84,26 +99,25 @@ public class Register : MonoBehaviour {
 
 //	public void Save ()
 //	{
-//		string filePath = Application.dataPath + "/Resources/Presentations";
-//		if (!Directory.Exists(filePath))
+//		string savePath = Application.dataPath + "/Resources/Presentations/Current";
+//		if (!Directory.Exists(savePath))
 //			CreateSaveDirectory ();
 //
-//		LevelData board = ScriptableObject.CreateInstance<LevelData>();
-//		board.tiles = new List<Vector3>( tiles.Count );
-//		foreach (Tile t in tiles.Values)
-//			board.tiles.Add( new Vector3(t.pos.x, t.height, t.pos.y) );
-//
-//		string fileName = string.Format("Assets/Resources/Presentations/{1}.asset", filePath, name);
-//		AssetDatabase.CreateAsset(board, fileName);
+//		string saveName = string.Format("Assets/Resources/Presentations/Current/{1}.asset", savePath, name);
+//		AssetDatabase.CreateAsset(presentation, saveName);
+//		//AssetDatabase.CreateAsset ();
 //	}
-//	void CreateSaveDirectory ()
+//	public void CreateSaveDirectory ()
 //	{
-//		string filePath = Application.dataPath + "/Resources";
-//		if (!Directory.Exists(filePath))
+//		string savePath = Application.dataPath + "/Resources";
+//		if (!Directory.Exists(savePath))
 //			AssetDatabase.CreateFolder("Assets", "Resources");
-//		filePath += "/Presentations";
-//		if (!Directory.Exists(filePath))
+//		savePath += "/Presentations";
+//		if (!Directory.Exists(savePath))
 //			AssetDatabase.CreateFolder("Assets/Resources", "Presentations");
+//		savePath += "/Current";
+//		if (!Directory.Exists(savePath))
+//			AssetDatabase.CreateFolder("Assets/Resources/Presentations", "Current");
 //		AssetDatabase.Refresh();
 //	}
 //	public void Load ()

@@ -1530,10 +1530,8 @@ MonoBehaviour:
   speed: 10
   rotationSpeed: 30
   zoomSpeed: 10
-  leftRotate: 0
-  rightRotate: 0
-  zoomIn: 0
-  zoomOut: 0
+  dragSpeed_x: 4.5
+  dragSpeed_y: 2
 --- !u!114 &1373548149
 MonoBehaviour:
   m_ObjectHideFlags: 0

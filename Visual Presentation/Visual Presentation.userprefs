@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\CameraMovement.cs" Line="47" Column="16" />
+      <File FileName="Assets\Scripts\CameraMovement.cs" Line="12" Column="41" />
       <File FileName="Assets\Scripts\Register.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlaceHolderText.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ImageRetriever.cs" Line="1" Column="1" />

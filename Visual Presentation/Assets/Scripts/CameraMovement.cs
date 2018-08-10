@@ -12,10 +12,13 @@ public class CameraMovement : MonoBehaviour {
 	[SerializeField] float zoomSpeed = 10f;
 	Slide imageSlide;
 
-	[SerializeField] bool leftRotate = false;
-	[SerializeField] bool rightRotate = false;
-	[SerializeField] bool zoomIn = false;
-	[SerializeField] bool zoomOut = false;
+	[SerializeField]float dragSpeed_x = 4.5f;
+	[SerializeField]float dragSpeed_y = 2;
+	private Vector3 oldMousePosition;
+	bool leftRotate = false;
+	bool rightRotate = false;
+	bool zoomIn = false;
+	bool zoomOut = false;
 
 	void Start ()
 	{
@@ -38,6 +41,7 @@ public class CameraMovement : MonoBehaviour {
 		}
 
 		//Mouse controls
+		DragNMove ();
 		if (leftRotate) {
 			RotateButton (1);
 		}
@@ -56,6 +60,29 @@ public class CameraMovement : MonoBehaviour {
 	{
 		Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 		transform.position += move * speed * Time.deltaTime * mainCamera.orthographicSize / 5f;
+	}
+
+	void DragNMove ()
+	//Found online
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			oldMousePosition = Input.mousePosition;
+			return;
+		}
+
+		if (!Input.GetMouseButton(0)) return;
+
+		Vector3 newMousePosition = Input.mousePosition;
+
+		Vector3 pos = Camera.main.ScreenToViewportPoint(newMousePosition - oldMousePosition);
+		float move_x = -1 * pos.x * dragSpeed_x * mainCamera.orthographicSize;
+		float move_y = -1 * pos.y * dragSpeed_y * mainCamera.orthographicSize;
+		Vector3 move = new Vector3(move_x, move_y, 0);
+
+		transform.Translate(move, Space.World);  
+
+		oldMousePosition = newMousePosition;
 	}
 
 	void Rotate ()

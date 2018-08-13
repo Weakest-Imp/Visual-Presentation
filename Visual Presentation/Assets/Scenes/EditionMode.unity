@@ -2191,6 +2191,7 @@ GameObject:
   - component: {fileID: 1051309759}
   - component: {fileID: 1051309758}
   - component: {fileID: 1051309757}
+  - component: {fileID: 1051309760}
   m_Layer: 5
   m_Name: NewPositionField
   m_TagString: Untagged
@@ -2269,7 +2270,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1373548149}
         m_MethodName: ChangeOrder
-        m_Mode: 5
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1051309760}
+        m_MethodName: OnDone
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2326,6 +2338,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1051309755}
   m_CullTransparentMesh: 0
+--- !u!114 &1051309760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051309755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5707d5e4c36718f4088384aa3d75e966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  confirm: {fileID: 477245469}
 --- !u!1 &1265037093
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,20 +2942,42 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1644523554}
   m_TextComponent: {fileID: 1647321114}
   m_Placeholder: {fileID: 549856304}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1373548149}
-        m_MethodName: SetPointer
-        m_Mode: 3
+        m_MethodName: SetPointerFromString
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: this.text
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1644523556}
+        m_MethodName: UpdateText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1644523556}
+        m_MethodName: Clean
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3618,7 +3664,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Move
 --- !u!222 &1849155484
 CanvasRenderer:
   m_ObjectHideFlags: 0

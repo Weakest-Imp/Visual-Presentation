@@ -45,4 +45,9 @@ public class ImageRetriever : MonoBehaviour {
 		return tex;
 	}
 
+	public Texture2D ImgTexture ()
+	{
+		return imgTex;
+	}
+
 }

@@ -338,7 +338,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 54154913}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1373548149}
+        m_MethodName: Save
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Digimon
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &54154913
@@ -2690,8 +2701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f6f18170a6ad644918b61188318808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  presentation: {fileID: 11400000, guid: b029966364050524c9c6f86ede4b982a, type: 2}
-  filePath: "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'\xE9cran\\Digimon-Survive.jpg"
+  filePath: C:\Users\Quentin\Desktop\Jeux\Projets Unity\Stage - Visual Presentation\Colab_change_1.png
 --- !u!1 &1422393101
 GameObject:
   m_ObjectHideFlags: 0

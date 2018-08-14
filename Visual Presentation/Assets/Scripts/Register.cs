@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class Register : MonoBehaviour {
 
@@ -27,9 +28,18 @@ public class Register : MonoBehaviour {
 	{
 		return pointer;
 	}
+	public Slide GetSlide (int index)
+	{
+		return presentation.slides[index];
+	}
+	public bool PointerInRange (int index)
+	//Evaluates wether index is within the bounds of the presentation
+	{
+		return (index < presentation.slides.Count && index >= 0);
+	}
 	public void SetPointer(int newPosition)
 	{
-		if (newPosition >= 0 && newPosition < presentation.slides.Count) {
+		if (PointerInRange(newPosition - 1)) {
 			pointer = newPosition - 1;}
 	}
 	public void SetPointerFromString (string newPosition)
@@ -52,7 +62,7 @@ public class Register : MonoBehaviour {
 	public void PointerPlus ()
 	{
 		pointer++;
-		if (pointer >= presentation.slides.Count) {
+		if (!PointerInRange(pointer)) {
 			pointer = 0;
 		}
 		Debug.Log (pointer);
@@ -60,7 +70,7 @@ public class Register : MonoBehaviour {
 	public void PointerMinus ()
 	{
 		pointer--;
-		if (pointer < 0) {
+		if (!PointerInRange(pointer)) {
 			pointer = presentation.slides.Count-1;
 			if (pointer == -1) {pointer = 0;}
 		}
@@ -68,7 +78,7 @@ public class Register : MonoBehaviour {
 	}
 	public void PointerJump (int index)
 	{
-		if (index < presentation.slides.Count && index >= 0) {
+		if (PointerInRange(index)) {
 			pointer = index;
 		}
 	}
@@ -113,57 +123,53 @@ public class Register : MonoBehaviour {
 		cameraMovement.Relocate (presentation.slides[pointer]);
 	}
 
-	public void Save (string newSaveName)
-	{
-		saveName = newSaveName;
-		//CreateDiectory ();
-		string savePath = Application.dataPath + "/Resources/Presentations/Current";
-		if (!Directory.Exists(savePath))
-			CreateSaveDirectory ();
-
-		//Save base image
-		FileUtil.CopyFileOrDirectory(filePath, savePath + "\\" + saveName + ".jpg");
-
-		//Save Presentation
-
-		//InputField for name
-		//Overwriting save but only for presentation
-		AssetDatabase.Refresh();
-	}
-
-//	public void Save (string saveName)
+//	public void Save (string newSaveName)
 //	{
+//		saveName = newSaveName;
+//		//CreateDiectory ();
 //		string savePath = Application.dataPath + "/Resources/Presentations/Current";
 //		if (!Directory.Exists(savePath))
 //			CreateSaveDirectory ();
 //
-//		string currentSaveName = string.Format("Assets/Resources/Presentations/Current/{1}.asset", savePath, name);
-//		AssetDatabase.CreateAsset(presentation, currentSaveName);
-//		//AssetDatabase.CreateAsset ();
+//		//Save base image
+//		FileUtil.CopyFileOrDirectory(filePath, savePath + "\\" + saveName + ".jpg");
+//
+//		//Save Presentation
+//		BinaryFormatter binary = new BinaryFormatter ();
+//		FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Create);
+//
+//		binary.Serialize (fStream, presentation);
+//		fStream.Close ();
+//
+//		//InputField for name
+//		//Overwriting save but only for presentation
+//		AssetDatabase.Refresh();
 //	}
-	public void CreateSaveDirectory ()
-	{
-		savePath = Application.dataPath + "/Resources";
-		if (!Directory.Exists(savePath))
-			AssetDatabase.CreateFolder("Assets", "Resources");
-		savePath += "/Presentations";
-		if (!Directory.Exists(savePath))
-			AssetDatabase.CreateFolder("Assets/Resources", "Presentations");
-		savePath += "/Current";
-		if (!Directory.Exists(savePath))
-			AssetDatabase.CreateFolder("Assets/Resources/Presentations", "Current");
-		AssetDatabase.Refresh();
-	}
-//	public void Load ()
+//
+//	void CreateSaveDirectory ()
 //	{
-//		Clear();
-//		if (levelData == null)
-//			return;
-//		foreach (Vector3 v in levelData.tiles)
-//		{
-//			Tile t = Create();
-//			t.Load(v);
-//			tiles.Add(t.pos, t);
-//		}
+//		savePath = Application.dataPath + "/Resources";
+//		if (!Directory.Exists(savePath))
+//			AssetDatabase.CreateFolder("Assets", "Resources");
+//		savePath += "/Presentations";
+//		if (!Directory.Exists(savePath))
+//			AssetDatabase.CreateFolder("Assets/Resources", "Presentations");
+//		savePath += "/Current";
+//		if (!Directory.Exists(savePath))
+//			AssetDatabase.CreateFolder("Assets/Resources/Presentations", "Current");
+//		AssetDatabase.Refresh();
+//	}
+//	public void Load (string saveName)
+//	{
+//		string savePath = Application.dataPath + "/Resources/Presentations/Current";
+//		//Loads image
+//
+//		//Loads Presentation
+//		BinaryFormatter binary = new BinaryFormatter ();
+//		FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Open);
+//		presentation = (Presentation)binary.Deserialize (fStream);
+//		fStream.Close ();
+//
+//		SetPointer (0);
 //	}
 }

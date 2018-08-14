@@ -2,8 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Register.cs">
     <Files>
-      <File FileName="Assets\Scripts\CameraMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Register.cs" Line="130" Column="47" />
+      <File FileName="Assets\Scripts\CameraMovement.cs" Line="28" Column="2" />
+      <File FileName="Assets\Scripts\CameraMovementDiet.cs" Line="20" Column="29" />
+      <File FileName="Assets\Scripts\Register.cs" Line="26" Column="2" />
       <File FileName="Assets\Scripts\PlaceHolderText.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ImageRetriever.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Slide.cs" Line="1" Column="1" />

@@ -32,6 +32,10 @@ public class Register : MonoBehaviour {
 	{
 		return presentation.slides[index];
 	}
+	public int GetPointerRange ()
+	{
+		return presentation.slides.Count;
+	}
 	public bool PointerInRange (int index)
 	//Evaluates wether index is within the bounds of the presentation
 	{

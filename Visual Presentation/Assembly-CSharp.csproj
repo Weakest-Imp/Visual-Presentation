@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\Presentation.cs" />
      <Compile Include="Assets\Scripts\Register.cs" />
      <Compile Include="Assets\Scripts\Slide.cs" />
+     <Compile Include="Assets\Scripts\SliderPointer.cs" />
      <Compile Include="Assets\Scripts\TwoClickScript.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Quentin/Desktop/Jeux/Projets Unity/Stage - Visual Presentation/Visual-Presentation/Visual Presentation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

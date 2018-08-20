@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Represents a "slide" of the presentation, by its coordinates
+[System.Serializable]
 public class Slide {
 
 	float pos_x;

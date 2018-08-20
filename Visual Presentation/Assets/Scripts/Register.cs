@@ -10,6 +10,7 @@ public class Register : MonoBehaviour {
 	Presentation presentation;
 	Camera mainCamera;
 	CameraMovement cameraMovement;
+	ImageRetriever imageRetriever;
 
 	public string filePath = "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'écran\\Digimon-Survive.jpg";
 	int pointer;
@@ -19,9 +20,10 @@ public class Register : MonoBehaviour {
 
 	void Start ()
 	{
-		presentation = ScriptableObject.CreateInstance<Presentation> ();
+		presentation = new Presentation ();
 		mainCamera = GetComponent<Camera> ();
 		cameraMovement = GetComponent<CameraMovement> ();
+		imageRetriever = GameObject.FindGameObjectWithTag ("Main Picture").GetComponent<ImageRetriever> ();
 	}
 
 	public int GetPointer ()
@@ -127,53 +129,57 @@ public class Register : MonoBehaviour {
 		cameraMovement.Relocate (presentation.slides[pointer]);
 	}
 
-//	public void Save (string newSaveName)
-//	{
-//		saveName = newSaveName;
-//		//CreateDiectory ();
-//		string savePath = Application.dataPath + "/Resources/Presentations/Current";
-//		if (!Directory.Exists(savePath))
-//			CreateSaveDirectory ();
-//
-//		//Save base image
-//		FileUtil.CopyFileOrDirectory(filePath, savePath + "\\" + saveName + ".jpg");
-//
-//		//Save Presentation
-//		BinaryFormatter binary = new BinaryFormatter ();
-//		FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Create);
-//
-//		binary.Serialize (fStream, presentation);
-//		fStream.Close ();
-//
-//		//InputField for name
-//		//Overwriting save but only for presentation
-//		AssetDatabase.Refresh();
-//	}
-//
-//	void CreateSaveDirectory ()
-//	{
-//		savePath = Application.dataPath + "/Resources";
-//		if (!Directory.Exists(savePath))
-//			AssetDatabase.CreateFolder("Assets", "Resources");
-//		savePath += "/Presentations";
-//		if (!Directory.Exists(savePath))
-//			AssetDatabase.CreateFolder("Assets/Resources", "Presentations");
-//		savePath += "/Current";
-//		if (!Directory.Exists(savePath))
-//			AssetDatabase.CreateFolder("Assets/Resources/Presentations", "Current");
-//		AssetDatabase.Refresh();
-//	}
-//	public void Load (string saveName)
-//	{
-//		string savePath = Application.dataPath + "/Resources/Presentations/Current";
-//		//Loads image
-//
-//		//Loads Presentation
-//		BinaryFormatter binary = new BinaryFormatter ();
-//		FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Open);
-//		presentation = (Presentation)binary.Deserialize (fStream);
-//		fStream.Close ();
-//
-//		SetPointer (0);
-//	}
+	public void Save (string newSaveName)
+	{
+		saveName = newSaveName;
+		string savePath = Application.dataPath + "/Resources/Presentations/" + saveName;
+		if (!Directory.Exists(savePath))
+			CreateSaveDirectory (saveName);
+
+		//Save base image
+		FileUtil.CopyFileOrDirectory(filePath, savePath + "\\" + saveName + ".jpg");
+
+		//Save Presentation
+		BinaryFormatter binary = new BinaryFormatter ();
+		FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.OpenOrCreate);
+
+		binary.Serialize (fStream, presentation);
+		fStream.Close ();
+
+		//InputField for name
+		//Overwriting save but only for presentation
+		AssetDatabase.Refresh();
+	}
+
+	void CreateSaveDirectory (string saveName)
+	{
+		savePath = Application.dataPath + "/Resources";
+		if (!Directory.Exists(savePath))
+			AssetDatabase.CreateFolder("Assets", "Resources");
+		savePath += "/Presentations";
+		if (!Directory.Exists(savePath))
+			AssetDatabase.CreateFolder("Assets/Resources", "Presentations");
+		savePath += "/" + saveName;
+		if (!Directory.Exists(savePath))
+			AssetDatabase.CreateFolder("Assets/Resources/Presentations", saveName);
+		AssetDatabase.Refresh();
+	}
+	public void Load (string saveName)
+	{
+		string savePath = Application.dataPath + "/Resources/Presentations/" + saveName;
+
+		//Loads Presentation
+		if (File.Exists (savePath + "\\" + saveName + ".pres")) {
+			BinaryFormatter binary = new BinaryFormatter ();
+			FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Open);
+			presentation = (Presentation)binary.Deserialize (fStream);
+			fStream.Close ();
+
+			//Loads image
+			imageRetriever.ApplySpriteFromPath (savePath + "\\" + saveName + ".jpg");
+			//Ensures editor mode is in start state
+			SetPointer (1);
+		}
+
+	}
 }

@@ -24,6 +24,7 @@ public class Register : MonoBehaviour {
 		mainCamera = GetComponent<Camera> ();
 		cameraMovement = GetComponent<CameraMovement> ();
 		imageRetriever = GameObject.FindGameObjectWithTag ("Main Picture").GetComponent<ImageRetriever> ();
+		filePath = imageRetriever.filePath;
 	}
 
 	public int GetPointer ()

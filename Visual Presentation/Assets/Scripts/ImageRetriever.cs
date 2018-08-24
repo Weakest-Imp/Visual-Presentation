@@ -6,8 +6,8 @@ using UnityEngine.Windows;
 //Gives a sprite to the gameobject from the picture indicated by the user
 public class ImageRetriever : MonoBehaviour {
 
-	GameObject mainCamera;
-	CameraMovement cameraScript;
+	[SerializeField] GameObject mainCamera;
+	[SerializeField] CameraMovement cameraMovement;
 	public string filePath;
 
 	private Texture2D imgTex;
@@ -15,10 +15,11 @@ public class ImageRetriever : MonoBehaviour {
 	private SpriteRenderer spriteR;
 
 	void Start () {
-		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
-		cameraScript = mainCamera.GetComponent<CameraMovement> ();
+			//It somehow does not find the cameraMovement this way, had to use SerializeField
+		//mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
+		//cameraMovement = mainCamera.GetComponent<CameraMovement> ();
+
 		filePath = GameManager.Instance.filePath;
-		//ApplySpriteFromPath (filePath);
 	}
 
 
@@ -27,7 +28,7 @@ public class ImageRetriever : MonoBehaviour {
 		image = Sprite.Create (imgTex, new Rect(0, 0, imgTex.width, imgTex.height), new Vector2(0.5f, 0.5f));
 		spriteR = gameObject.GetComponent<SpriteRenderer>();
 		spriteR.sprite = image;
-		cameraScript.Initialize (imgTex.height/200f);
+		cameraMovement.Initialize (imgTex.height/200f);
 	}
 
 	public static Texture2D LoadPNG(string filePath)

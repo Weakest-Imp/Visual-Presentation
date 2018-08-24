@@ -735,7 +735,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1373548148}
+        - m_Target: {fileID: 0}
           m_MethodName: PressButtonZoom
           m_Mode: 6
           m_Arguments:
@@ -752,7 +752,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1373548148}
+        - m_Target: {fileID: 0}
           m_MethodName: PressButtonZoom
           m_Mode: 6
           m_Arguments:
@@ -1040,7 +1040,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1373548148}
+        - m_Target: {fileID: 0}
           m_MethodName: PressButtonRight
           m_Mode: 6
           m_Arguments:
@@ -1057,7 +1057,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1373548148}
+        - m_Target: {fileID: 0}
           m_MethodName: PressButtonRight
           m_Mode: 6
           m_Arguments:
@@ -1479,7 +1479,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1373548148}
+        - m_Target: {fileID: 0}
           m_MethodName: PressButtonLeft
           m_Mode: 6
           m_Arguments:
@@ -1496,7 +1496,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1373548148}
+        - m_Target: {fileID: 0}
           m_MethodName: PressButtonLeft
           m_Mode: 6
           m_Arguments:
@@ -2577,7 +2577,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1373548148}
+      - m_Target: {fileID: 0}
         m_MethodName: ReInitialize
         m_Mode: 1
         m_Arguments:
@@ -2662,6 +2662,11 @@ Prefab:
     - target: {fileID: 4443670622014730, guid: c644ded4b6153934e9ee482eb877560b, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114214473719082506, guid: c644ded4b6153934e9ee482eb877560b,
+        type: 2}
+      propertyPath: filePath
+      value: "C:\\\\Users\\\\Quentin\\\\Desktop\\\\Quentin\\\\images\\\\Fonds d'\xE9cran\\\\Omegamon.jpg"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c644ded4b6153934e9ee482eb877560b, type: 2}
@@ -3666,8 +3671,8 @@ GameObject:
   - component: {fileID: 1373548147}
   - component: {fileID: 1373548146}
   - component: {fileID: 1373548145}
-  - component: {fileID: 1373548148}
   - component: {fileID: 1373548149}
+  - component: {fileID: 1373548148}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4374,7 +4379,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1373548148}
+        - m_Target: {fileID: 0}
           m_MethodName: PressButtonDezoom
           m_Mode: 6
           m_Arguments:
@@ -4391,7 +4396,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1373548148}
+        - m_Target: {fileID: 0}
           m_MethodName: PressButtonDezoom
           m_Mode: 6
           m_Arguments:
@@ -5484,6 +5489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2baa9c8ccde4784db26f6cc56340278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1373548144}
+  cameraMovement: {fileID: 1373548148}
   filePath: "C:\\\\Users\\\\Quentin\\\\Desktop\\\\Quentin\\\\images\\\\Fonds d'\xE9cran\\\\Digimon-Survive.jpg"
 --- !u!212 &2048321899
 SpriteRenderer:

@@ -21,6 +21,15 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void SetSaveName (string saveName)
+	{
+		this.saveName = saveName;
+	}
+	public void SetFilePath (string filePath)
+	{
+		this.filePath = filePath;
+	}
+
 	public void MainMenu ()
 	{
 		SceneManager.LoadScene ("ModeScreen");
@@ -28,7 +37,11 @@ public class GameManager : MonoBehaviour {
 
 	public void EditorMode ()
 	{
-		//apply filePath beforehand
 		SceneManager.LoadScene ("EditionMode");
+	}
+
+	public void PresentationMode ()
+	{
+		SceneManager.LoadScene ("PresentationMode");
 	}
 }

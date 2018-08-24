@@ -1,18 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ImageRetriever.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Register.cs">
     <Files>
       <File FileName="Assets\Scripts\CameraMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraMovementDiet.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Register.cs" Line="13" Column="32" />
-      <File FileName="Assets\Scripts\ImageRetriever.cs" Line="19" Column="18" />
+      <File FileName="Assets\Scripts\ImageRetriever.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlaceHolderText.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Slide.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Presentation.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\DeleteConfirm.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TwoClickScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\NewPositionField.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NewPositionField.cs" Line="8" Column="2" />
       <File FileName="Assets\Scripts\SliderPointer.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="35" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

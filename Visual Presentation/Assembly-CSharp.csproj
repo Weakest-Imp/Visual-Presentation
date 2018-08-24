@@ -58,7 +58,6 @@
      <Compile Include="Assets\Scripts\DeleteConfirm.cs" />
      <Compile Include="Assets\Scripts\Extern\OldImageRetriever.cs" />
      <Compile Include="Assets\Scripts\Extern\ZoomInZoomOut.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\ImageRetriever.cs" />
      <Compile Include="Assets\Scripts\NewPositionField.cs" />
      <Compile Include="Assets\Scripts\PlaceHolderText.cs" />

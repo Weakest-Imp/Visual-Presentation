@@ -8,7 +8,7 @@ public class ImageRetriever : MonoBehaviour {
 
 	GameObject mainCamera;
 	CameraMovement cameraScript;
-	public string filePath;
+	public string filePath = "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'écran\\Digimon-Survive.jpg";
 
 	private Texture2D imgTex;
 	private Sprite image;
@@ -16,9 +16,9 @@ public class ImageRetriever : MonoBehaviour {
 
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
-		cameraScript = mainCamera.GetComponent<CameraMovement> ();
-		filePath = GameManager.Instance.filePath;
-		//ApplySpriteFromPath (filePath);
+		cameraScript = (CameraMovement) mainCamera.GetComponent (typeof(CameraMovement));
+		//________filePath = ObtainUserPath ();_______
+		ApplySpriteFromPath (filePath);
 	}
 
 

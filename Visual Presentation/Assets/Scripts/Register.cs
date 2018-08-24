@@ -12,7 +12,7 @@ public class Register : MonoBehaviour {
 	CameraMovement cameraMovement;
 	ImageRetriever imageRetriever;
 
-	public string filePath;
+	public string filePath = "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'écran\\Digimon-Survive.jpg";
 	int pointer;
 
 	string savePath;
@@ -24,9 +24,7 @@ public class Register : MonoBehaviour {
 		mainCamera = GetComponent<Camera> ();
 		cameraMovement = GetComponent<CameraMovement> ();
 		imageRetriever = GameObject.FindGameObjectWithTag ("Main Picture").GetComponent<ImageRetriever> ();
-		filePath = GameManager.Instance.filePath;
-		saveName = GameManager.Instance.saveName;
-		Load (saveName);
+		filePath = imageRetriever.filePath;
 	}
 
 	public int GetPointer ()
@@ -169,23 +167,19 @@ public class Register : MonoBehaviour {
 	}
 	public void Load (string saveName)
 	{
-		if (saveName != "") {
-			string savePath = Application.dataPath + "/Resources/Presentations/" + saveName;
+		string savePath = Application.dataPath + "/Resources/Presentations/" + saveName;
 
-			//Loads Presentation
-			if (File.Exists (savePath + "\\" + saveName + ".pres")) {
-				BinaryFormatter binary = new BinaryFormatter ();
-				FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Open);
-				presentation = (Presentation)binary.Deserialize (fStream);
-				fStream.Close ();
+		//Loads Presentation
+		if (File.Exists (savePath + "\\" + saveName + ".pres")) {
+			BinaryFormatter binary = new BinaryFormatter ();
+			FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Open);
+			presentation = (Presentation)binary.Deserialize (fStream);
+			fStream.Close ();
 
-				//Loads image
-				imageRetriever.ApplySpriteFromPath (savePath + "\\" + saveName + ".jpg");
-				//Ensures editor mode is in start state
-				SetPointer (1);
-			}
-		} else {
-			imageRetriever.ApplySpriteFromPath (filePath);
+			//Loads image
+			imageRetriever.ApplySpriteFromPath (savePath + "\\" + saveName + ".jpg");
+			//Ensures editor mode is in start state
+			SetPointer (1);
 		}
 
 	}

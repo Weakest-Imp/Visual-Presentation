@@ -12,7 +12,7 @@ public class Register : MonoBehaviour {
 	CameraMovement cameraMovement;
 	ImageRetriever imageRetriever;
 
-	public string filePath = "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'écran\\Digimon-Survive.jpg";
+	public string filePath;
 	int pointer;
 
 	string savePath;
@@ -24,7 +24,9 @@ public class Register : MonoBehaviour {
 		mainCamera = GetComponent<Camera> ();
 		cameraMovement = GetComponent<CameraMovement> ();
 		imageRetriever = GameObject.FindGameObjectWithTag ("Main Picture").GetComponent<ImageRetriever> ();
-		filePath = imageRetriever.filePath;
+		filePath = GameManager.Instance.filePath;
+		saveName = GameManager.Instance.saveName;
+		Load (saveName);
 	}
 
 	public int GetPointer ()
@@ -167,19 +169,23 @@ public class Register : MonoBehaviour {
 	}
 	public void Load (string saveName)
 	{
-		string savePath = Application.dataPath + "/Resources/Presentations/" + saveName;
+		if (saveName != "") {
+			string savePath = Application.dataPath + "/Resources/Presentations/" + saveName;
 
-		//Loads Presentation
-		if (File.Exists (savePath + "\\" + saveName + ".pres")) {
-			BinaryFormatter binary = new BinaryFormatter ();
-			FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Open);
-			presentation = (Presentation)binary.Deserialize (fStream);
-			fStream.Close ();
+			//Loads Presentation
+			if (File.Exists (savePath + "\\" + saveName + ".pres")) {
+				BinaryFormatter binary = new BinaryFormatter ();
+				FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.Open);
+				presentation = (Presentation)binary.Deserialize (fStream);
+				fStream.Close ();
 
-			//Loads image
-			imageRetriever.ApplySpriteFromPath (savePath + "\\" + saveName + ".jpg");
-			//Ensures editor mode is in start state
-			SetPointer (1);
+				//Loads image
+				imageRetriever.ApplySpriteFromPath (savePath + "\\" + saveName + ".jpg");
+				//Ensures editor mode is in start state
+				SetPointer (1);
+			}
+		} else {
+			imageRetriever.ApplySpriteFromPath (filePath);
 		}
 
 	}

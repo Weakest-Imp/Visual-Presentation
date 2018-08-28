@@ -55,15 +55,18 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\CameraMovementDiet.cs" />
+     <Compile Include="Assets\Scripts\CanvasChange.cs" />
      <Compile Include="Assets\Scripts\DeleteConfirm.cs" />
      <Compile Include="Assets\Scripts\Extern\OldImageRetriever.cs" />
      <Compile Include="Assets\Scripts\Extern\ZoomInZoomOut.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\ImageRetriever.cs" />
      <Compile Include="Assets\Scripts\NewPositionField.cs" />
+     <Compile Include="Assets\Scripts\OpenSaveFiles.cs" />
      <Compile Include="Assets\Scripts\PlaceHolderText.cs" />
      <Compile Include="Assets\Scripts\Presentation.cs" />
      <Compile Include="Assets\Scripts\Register.cs" />
+     <Compile Include="Assets\Scripts\SaveFileChoice.cs" />
      <Compile Include="Assets\Scripts\Slide.cs" />
      <Compile Include="Assets\Scripts\SliderPointer.cs" />
      <Compile Include="Assets\Scripts\TwoClickScript.cs" />

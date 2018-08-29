@@ -41,7 +41,6 @@ public class CameraMovement : MonoBehaviour {
 		}
 
 		//Mouse controls
-		DragNMove ();
 		if (leftRotate) {
 			RotateButton (1);
 		}
@@ -62,27 +61,29 @@ public class CameraMovement : MonoBehaviour {
 		transform.position += move * speed * Time.deltaTime * mainCamera.orthographicSize / 5f;
 	}
 
-	void DragNMove ()
+
+	public void LaunchDragAndMove () {
+		StartCoroutine ("DragAndMove");
+	}
+	public IEnumerator DragAndMove ()
 	//Found online
 	{
-		if (Input.GetMouseButtonDown(0))
-		{
-			oldMousePosition = Input.mousePosition;
-			return;
+		oldMousePosition = Input.mousePosition;
+
+		while (true) {
+
+			Vector3 newMousePosition = Input.mousePosition;
+
+			Vector3 pos = Camera.main.ScreenToViewportPoint (newMousePosition - oldMousePosition);
+			float move_x = -1 * pos.x * dragSpeed_x * mainCamera.orthographicSize;
+			float move_y = -1 * pos.y * dragSpeed_y * mainCamera.orthographicSize;
+			Vector3 move = new Vector3 (move_x, move_y, 0);
+
+			transform.Translate (move, Space.World);  
+
+			oldMousePosition = newMousePosition;
+			yield return null;
 		}
-
-		if (!Input.GetMouseButton(0)) return;
-
-		Vector3 newMousePosition = Input.mousePosition;
-
-		Vector3 pos = Camera.main.ScreenToViewportPoint(newMousePosition - oldMousePosition);
-		float move_x = -1 * pos.x * dragSpeed_x * mainCamera.orthographicSize;
-		float move_y = -1 * pos.y * dragSpeed_y * mainCamera.orthographicSize;
-		Vector3 move = new Vector3(move_x, move_y, 0);
-
-		transform.Translate(move, Space.World);  
-
-		oldMousePosition = newMousePosition;
 	}
 
 	void Rotate ()

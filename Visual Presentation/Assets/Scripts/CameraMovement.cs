@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour {
 
 	Camera mainCamera;
 	Register register;
+	[SerializeField] Canvas canvas;
 
 	[SerializeField] float speed = 10f;
 	[SerializeField] float rotationSpeed = 10f;
@@ -52,6 +53,11 @@ public class CameraMovement : MonoBehaviour {
 		}
 		if (zoomOut) {
 			ZoomButon (1);
+		}
+
+		//To hide/reappear the UI
+		if (Input.GetKeyDown(KeyCode.L)){
+			HideCanvas ();
 		}
 	}
 		
@@ -148,6 +154,11 @@ public class CameraMovement : MonoBehaviour {
 		mainCamera.transform.position = new Vector3 (slide.Getx(), slide.Gety(), -10);
 		mainCamera.transform.eulerAngles = new Vector3(0, 0, slide.GetRot());
 		mainCamera.orthographicSize = slide.GetZoom();
+	}
+
+
+	public void HideCanvas () {
+		canvas.enabled = !canvas.enabled;
 	}
 
 }

@@ -1,20 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CanvasChange.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Presentation Mode\CameraMovementPresentation.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Register.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\OpenSaveFiles.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CanvasChange.cs" Line="9" Column="25" />
-      <File FileName="Assets\Scripts\CameraMovement.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\Scripts\ImageRetriever.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\Scripts\PlaceHolderText.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\Scripts\Slide.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\Scripts\Presentation.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\Scripts\DeleteConfirm.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\Scripts\TwoClickScript.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\Scripts\NewPositionField.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\Scripts\SliderPointer.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="36" Column="20" />
+      <File FileName="Assets\Scripts\Register.cs" Line="85" Column="4" />
+      <File FileName="Assets\Scripts\ImageRetriever.cs" Line="4" Column="16" />
+      <File FileName="Assets\Scripts\CameraMovement.cs" Line="144" Column="2" />
+      <File FileName="Assets\Scripts\Presentation Mode\ImageRetrieverPrensentation.cs" Line="24" Column="16" NotebookId="1" />
+      <File FileName="Assets\Scripts\Presentation Mode\CameraMovementPresentation.cs" Line="100" Column="28" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

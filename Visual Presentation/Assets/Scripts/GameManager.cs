@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour {
 	public string filePath = "C:\\Users\\Quentin\\Desktop\\Quentin\\images\\Fonds d'écran\\Digimon-Survive.jpg";
 	public string saveName;
 
-	Register register;
+	public Presentation presentation;
+
+	//Register register;
 
 	void Awake () {
 		if (Instance == null) {
@@ -28,6 +30,10 @@ public class GameManager : MonoBehaviour {
 	public void SetFilePath (string filePath)
 	{
 		this.filePath = filePath;
+	}
+	public void SetPresentation (Presentation presentation)
+	{
+		this.presentation = presentation;
 	}
 
 	public void MainMenu ()

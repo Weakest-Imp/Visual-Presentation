@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows;
+using System.IO;
 
 //Gives a sprite to the gameobject from the picture indicated by the user
+//For Editor Mode
 public class ImageRetriever : MonoBehaviour {
 
 	[SerializeField] GameObject mainCamera;

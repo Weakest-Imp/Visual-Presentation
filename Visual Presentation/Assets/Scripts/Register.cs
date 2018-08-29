@@ -47,6 +47,7 @@ public class Register : MonoBehaviour {
 		return (index < presentation.slides.Count && index >= 0);
 	}
 	public void SetPointer(int newPosition)
+	//Different from presentation's
 	{
 		if (PointerInRange(newPosition - 1)) {
 			pointer = newPosition - 1;}
@@ -74,7 +75,6 @@ public class Register : MonoBehaviour {
 		if (!PointerInRange(pointer)) {
 			pointer = 0;
 		}
-		Debug.Log (pointer);
 	}
 	public void PointerMinus ()
 	{
@@ -83,7 +83,6 @@ public class Register : MonoBehaviour {
 			pointer = presentation.slides.Count-1;
 			if (pointer == -1) {pointer = 0;}
 		}
-		Debug.Log (pointer);
 	}
 	public void PointerJump (int index)
 	{

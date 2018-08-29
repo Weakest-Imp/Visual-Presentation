@@ -12,9 +12,11 @@ public class CameraMovementPresentation : MonoBehaviour {
 
 	int pointer;
 	[SerializeField] float timeToMove;
+	float invTimeToMove;
 	float cooldown;
 
 	void Start () {
+		invTimeToMove = 1f / timeToMove;
 		mainCamera = GetComponent<Camera> ();
 		saveName = GameManager.Instance.saveName;
 		LoadPresentation ();
@@ -73,9 +75,26 @@ public class CameraMovementPresentation : MonoBehaviour {
 		mainCamera.transform.eulerAngles = new Vector3(0, 0, slide.GetRot());
 		mainCamera.orthographicSize = slide.GetZoom();
 	}
-//	IEnumerator SmoothRelocate (Slide slide) {
-//
-//	}
+	IEnumerator SmoothRelocate (Slide slide) {
+		Vector3 movePosition = new Vector3 (slide.Getx (), slide.Gety (), -10)
+								- mainCamera.transform.position;
+		Vector3 moveRotation = new Vector3 (0, 0, slide.GetRot ())
+		                       - mainCamera.transform.eulerAngles;
+		float moveZoom = slide.GetZoom () - mainCamera.orthographicSize;
+
+		float deltaTime = Time.deltaTime * invTimeToMove;
+		for (float time = 0f; time <= 1; time += deltaTime) {
+			mainCamera.transform.position += movePosition * deltaTime;
+			mainCamera.transform.eulerAngles += moveRotation * deltaTime;
+			mainCamera.orthographicSize += moveZoom * deltaTime;
+
+			yield return null;
+			deltaTime = Time.deltaTime * invTimeToMove;
+		}
+		mainCamera.transform.position = new Vector3 (slide.Getx(), slide.Gety(), -10);
+		mainCamera.transform.eulerAngles = new Vector3(0, 0, slide.GetRot());
+		mainCamera.orthographicSize = slide.GetZoom();
+	}
 
 	//Functions to go forward in the presentation
 	void PointerPlus ()
@@ -93,7 +112,8 @@ public class CameraMovementPresentation : MonoBehaviour {
 	}
 	void NextSlide () {
 		PointerPlus ();
-		Relocate (GetSlide (pointer));
+		//Relocate (GetSlide (pointer));
+		StartCoroutine("SmoothRelocate", GetSlide(pointer));
 		cooldown = timeToMove;
 	}
 
@@ -114,7 +134,8 @@ public class CameraMovementPresentation : MonoBehaviour {
 	}
 	void PreviousSlide() {
 		PointerMinus ();
-		Relocate (GetSlide (pointer));
+		//Relocate (GetSlide (pointer));
+		StartCoroutine("SmoothRelocate", GetSlide(pointer));
 		cooldown = timeToMove;
 	}
 }

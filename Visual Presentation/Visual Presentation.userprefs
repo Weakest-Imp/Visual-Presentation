@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main Menu\ObtainFilePath.cs">
     <Files>
       <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Register.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ImageRetriever.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CameraMovement.cs" Line="60" Column="18" />
+      <File FileName="Assets\Scripts\CameraMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Touchable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main Menu\ObtainFilePath.cs" Line="14" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

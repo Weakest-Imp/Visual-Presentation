@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 
 	public Presentation presentation;
 
+	string previousScene;
+
 	//Register register;
 
 	void Awake () {
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour {
 		} else {
 			Destroy (gameObject);
 		}
+		previousScene = SceneManager.GetActiveScene ().name;
 	}
 
 	public void SetSaveName (string saveName)
@@ -38,16 +41,24 @@ public class GameManager : MonoBehaviour {
 
 	public void MainMenu ()
 	{
+		previousScene = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene ("ModeScreen");
 	}
 
 	public void EditorMode ()
 	{
+		previousScene = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene ("EditionMode");
 	}
 
 	public void PresentationMode ()
 	{
+		previousScene = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene ("PresentationMode");
+	}
+
+	public void PreviousScene ()
+	{
+		SceneManager.LoadScene (previousScene);
 	}
 }

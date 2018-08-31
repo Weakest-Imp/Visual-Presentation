@@ -134,13 +134,15 @@ public class Register : MonoBehaviour {
 	public void Save (string newSaveName)
 	{
 		saveName = newSaveName;
+		GameManager.Instance.SetSaveName (newSaveName);
 		string savePath = Application.dataPath + "/Resources/Presentations/" + saveName;
 		if (!Directory.Exists(savePath))
 			CreateSaveDirectory (saveName);
 
-		//Save base image
-		FileUtil.CopyFileOrDirectory(filePath, savePath + "\\" + saveName + ".jpg");
-
+		//Save base image if not already saved (cannot be changed by application)
+		if (!File.Exists(savePath + "\\" + saveName + ".jpg")) {
+			FileUtil.CopyFileOrDirectory(filePath, savePath + "\\" + saveName + ".jpg");
+		}
 		//Save Presentation
 		BinaryFormatter binary = new BinaryFormatter ();
 		FileStream fStream = File.Open (savePath + "\\" + saveName + ".pres", FileMode.OpenOrCreate);

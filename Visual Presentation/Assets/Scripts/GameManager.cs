@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour {
 
 	public void MainMenu ()
 	{
+		SetFilePath ("");
+		SetSaveName ("");
+		SetPresentation (new Presentation());
 		previousScene = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene ("ModeScreen");
 	}

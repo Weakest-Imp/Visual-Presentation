@@ -13,6 +13,8 @@ public class SaveFileChoice : MonoBehaviour {
 
 	public void LaunchEditor () {
 		GameManager.Instance.SetSaveName (buttonText);
+		string imagePath = Application.dataPath + "/Resources/Presentations/" + buttonText + "/" + buttonText + ".jpg";
+		GameManager.Instance.SetFilePath (imagePath);
 		GameManager.Instance.EditorMode ();
 	}
 

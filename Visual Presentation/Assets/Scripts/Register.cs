@@ -141,7 +141,7 @@ public class Register : MonoBehaviour {
 
 		//Save base image if not already saved (cannot be changed by application)
 		if (!File.Exists(savePath + "\\" + saveName + ".jpg")) {
-			FileUtil.CopyFileOrDirectory(filePath, savePath + "\\" + saveName + ".jpg");
+			File.Copy(filePath, savePath + "\\" + saveName + ".jpg");
 		}
 		//Save Presentation
 		BinaryFormatter binary = new BinaryFormatter ();
@@ -150,23 +150,16 @@ public class Register : MonoBehaviour {
 		binary.Serialize (fStream, presentation);
 		fStream.Close ();
 
-		//InputField for name
-		//Overwriting save but only for presentation
-		AssetDatabase.Refresh();
+
+		//AssetDatabase.Refresh();		//Not in build
 	}
 
 	void CreateSaveDirectory (string saveName)
 	{
-		savePath = Application.dataPath + "/Resources";
+		savePath = Application.dataPath + "/Resources/Presentations/" + saveName;
 		if (!Directory.Exists(savePath))
-			AssetDatabase.CreateFolder("Assets", "Resources");
-		savePath += "/Presentations";
-		if (!Directory.Exists(savePath))
-			AssetDatabase.CreateFolder("Assets/Resources", "Presentations");
-		savePath += "/" + saveName;
-		if (!Directory.Exists(savePath))
-			AssetDatabase.CreateFolder("Assets/Resources/Presentations", saveName);
-		AssetDatabase.Refresh();
+			System.IO.Directory.CreateDirectory(savePath);
+		//AssetDatabase.Refresh();		//Not in build
 	}
 	public void Load (string saveName)
 	{
@@ -185,7 +178,12 @@ public class Register : MonoBehaviour {
 				//Ensures editor mode is in start state
 				SetPointer (1);
 			}
-		} else {
+			if (File.Exists (savePath + "\\" + saveName + ".jpg")) {
+				imageRetriever.ApplySpriteFromPath (savePath + "\\" + saveName + ".jpg");
+			}
+		} 
+
+		else {
 			imageRetriever.ApplySpriteFromPath (filePath);
 		}
 

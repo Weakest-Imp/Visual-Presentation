@@ -34,12 +34,12 @@ public class CameraMovement : MonoBehaviour {
 		Move ();
 		Rotate ();
 		Zoom ();
-		if (Input.GetKeyDown(KeyCode.O)){
-			Relocate(imageSlide);
-		}
-		if (Input.GetKeyDown(KeyCode.P)){
-			register.AddSlide();
-		}
+//		if (Input.GetKeyDown(KeyCode.O)){
+//			Relocate(imageSlide);
+//		}
+//		if (Input.GetKeyDown(KeyCode.P)){
+//			register.AddSlide();
+//		}
 
 		//Mouse controls
 		if (leftRotate) {

@@ -1,0 +1,28 @@
+Manual for Edition Mode
+
+The number at the lower right is the "Pointer",
+it indicates which slide is currently selected, by its number.
+It can be changed through the +/- buttons or the slider by the previews.
+
+Main Menu: to go back to the main menu
+Present: to view how the current presentation will turn out
+
+Hide (L): Hides all the User Interface to see the slide unobtructed
+		Need to press L to recover UI
+
+Delete: Deletes the selected slide
+Add: Adds the current position as a slide, at the very end of the presentation
+Move: Insert the selected slide at the indicated position
+	(ex: if inserted at 2, it will be the second and the previous number 2 will be 3)
+Save: Saves the current slides and the image under the entered name in a folder
+	Folders can be found in Assets/Resources/Presentation
+	(/!\Slides can be overwriten but not pictures, be careful not to save under a used name)
+Reset: Moves the camera back to the full picture. Does not affect the slides
+Jump: Moves the camera to the selected slide
+
+Keyboard controls:
+ZQSD for moving
+T/G to zoom/dezoom
+H/F to rotate
+
+Tip: hit Esc in presentation to get out 

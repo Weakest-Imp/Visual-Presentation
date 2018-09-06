@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Quentin/Desktop/Jeux/Projets Unity/Stage - Visual Presentation/Visual-Presentation/Visual Presentation.exe
+C:/Users/Quentin/Desktop/Jeux/Projets Unity/Stage - Visual Presentation/Visual-Presentation/Build/Visual Presentation.exe
 SceneListBegin?
 Assets/Scenes/ModeScreen.unity
 Assets/Scenes/EditionMode.unity
